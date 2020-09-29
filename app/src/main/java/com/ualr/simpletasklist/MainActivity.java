@@ -3,6 +3,7 @@ package com.ualr.simpletasklist;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -13,8 +14,6 @@ import com.ualr.simpletasklist.model.TaskList;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private EditText taskDescriptionET;
-    private EditText editTextTaskId;
 
     // TODO 05. Add a TaskList member to the MainActivity. Initialize the new member.
     private TaskList taskList = new TaskList();
@@ -40,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
     //  through the text field on the top of the screen by tapping the "+" on the right
 
     // TODO 06.01. Create a new method called onAddBtnClicked.
-    public void onAddBtnClicked() {
-        taskList.addTask(taskDescriptionET.getText().toString());
+    public void onAddBtnClicked(View view) {
+        taskList.addTask(binding.taskDescriptionET.getText().toString());
     }
     // TODO 06.05. Invoke TaskList class' add method to ask the TaskList to
     //  add a new Task with the description provided through the text field.
@@ -53,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
     // TODO 07. Create a new functionality to delete a task from the task list
 
     // TODO 07.01. Create a new method called onDeleteBtnClicked.
-    public void onDeleteBtnClicked() {
-        taskList.deleteTask(Integer.parseInt(editTextTaskId.getText().toString()));
+    public void onDeleteBtnClicked(View view) {
+        taskList.deleteTask(Integer.parseInt(binding.editTextTaskId.getText().toString()));
     }
     // TODO 07.04. Invoke TaskList class' delete method to ask the TaskList to
     //  delete a Task given the id provided through the text field on the bottom.
@@ -66,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
     // TODO 08. Create a new functionality to mark a task as done.
 
     // TODO 08.01. Create a new method called onDoneBtnClicked
-    public void onDoneBtnClicked() {
-        taskList.markDone(Integer.parseInt(editTextTaskId.getText().toString()));
+    public void onDoneBtnClicked(View view) {
+        taskList.markDone(Integer.parseInt(binding.editTextTaskId.getText().toString()));
     }
     // TODO 08.04. Invoke TaskList class' markDone method to ask the TaskList to
     //  mark a Task given the id provided through the text field on the bottom.
